@@ -4,7 +4,7 @@ MAINTAINER leo.lou@gov.bc.ca
 ARG DVER=0.3.4
 
 WORKDIR /app
-#COPY entrypoint.sh /usr/bin/entrypoint.sh
+COPY entrypoint.sh /usr/bin/entrypoint.sh
 RUN apk update \
  && apk --no-cache add curl git openssh-client \
  && apk --no-cache add --virtual devs tar \
@@ -22,5 +22,4 @@ RUN adduser -S app -h /app \
 
 USER app
 EXPOSE 3000
-#ENTRYPOINT ["/usr/bin/entrypoint.sh"]
-CMD ["/app/prest"]
+ENTRYPOINT ["/usr/bin/entrypoint.sh"]
