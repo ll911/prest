@@ -13,7 +13,8 @@ RUN apk update \
       "https://github.com/prest/prest/releases/download/v${DVER}/prest_${DVER}_linux_amd64.tar.gz" \
       | tar --no-same-owner -C /usr/bin/ -xz \
  && chmod 0755 /usr/bin/prest \
- && chmod 0755 /usr/bin/entrypoint.sh
+ && chmod 0755 /usr/bin/entrypoint.sh \
+ && mkdir /lib64 && ln -s /lib/libc.musl-x86_64.so.1 /lib64/ld-linux-x86-64.so.2
 
 RUN adduser -S app -h /app \
   && chown -R app:0 /app && chmod -R 770 /app \
