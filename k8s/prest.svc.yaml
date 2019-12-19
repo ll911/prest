@@ -20,14 +20,14 @@ objects:
       deploymentconfig: ${NAME}${SUFFIX}
     sessionAffinity: None
     type: ClusterIP
-    parameters:
-    - description: A name used for all objects
-      displayName: Name
-      name: NAME
-      required: true
-      value: bcgw-poc
-    - description: A name suffix used for all objects
-      displayName: Suffix
-      name: SUFFIX
-      required: false
-      value: -api    
+parameters:
+- description: A name used for all objects
+  displayName: Name
+  name: NAME
+  required: true
+  value: bcgw-poc
+- description: A name suffix used for all objects
+  displayName: Suffix
+  name: SUFFIX
+  required: false
+  value: -api    
